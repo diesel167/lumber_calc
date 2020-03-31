@@ -15,27 +15,21 @@ export default function Choose({setWorkwidth, setAllwidth, allwidth,workwidth}) 
   //handler for show/hide parameters for choosen lumber
   let showParameters = (a) => selected===a?' show':' hide';
 
-  let choseParameters = (e) =>{
-
-  };
   return <div className="choose">
     <div  className="img">
+      <p className="name">Вагонка</p>
       <div className={'parameters allwidth' + showParameters('lumber1')}>
         <p>Общая ширина:</p>
         <input  type="text"
-                value={allwidth}
-                onChange={(e)=>{
-                e.target.value = e.target.value<<0;    //delete Nulls in the beginning of number
-                setAllwidth(+e.target.value)}}/>
+                placeholder='0'
+                onChange={(e)=>setAllwidth(+e.target.value)}/>
         <p className="mm">мм</p>
       </div>
       <div className={'parameters workwidth' + showParameters('lumber1')}>
         <p>Рабочая ширина:</p>
         <input  type="text"
-                value={workwidth}
-                onChange={(e)=>{
-                  e.target.value = e.target.value<<0;
-                  setWorkwidth(+e.target.value)}}/>
+                placeholder='0'
+                onChange={(e)=>setWorkwidth(+e.target.value)}/>
         <p className="mm">мм</p>
       </div>
       <label htmlFor="lumber1"
@@ -51,22 +45,19 @@ export default function Choose({setWorkwidth, setAllwidth, allwidth,workwidth}) 
       </label>
     </div>
     <div  className="img">
+      <p className="name">Половая доска</p>
       <div className={'parameters allwidth' + showParameters('lumber2')}>
         <p>Общая ширина:</p>
         <input  type="text"
-                value={allwidth}
-                onChange={(e)=>{
-                  e.target.value = e.target.value<<0;    //delete Nulls in the beginning of number
-                  setAllwidth(+e.target.value)}}/>
+                placeholder='0'
+                onChange={(e)=>setAllwidth(+e.target.value)}/>
         <p className="mm">мм</p>
       </div>
       <div className={'parameters workwidth' + showParameters('lumber2')}>
         <p>Рабочая ширина:</p>
         <input  type="text"
-                value={workwidth}
-                onChange={(e)=>{
-                  e.target.value = e.target.value<<0;
-                  setWorkwidth(+e.target.value)}}/>
+                placeholder='0'
+                onChange={(e)=>setWorkwidth(+e.target.value)}/>
         <p className="mm">мм</p>
       </div>
       <label htmlFor="lumber2"
@@ -82,22 +73,15 @@ export default function Choose({setWorkwidth, setAllwidth, allwidth,workwidth}) 
       </label>
     </div>
     <div  className="img">
+      <p className="name">Планкен</p>
       <div className={'parameters allwidth' + showParameters('lumber3')}>
         <p>Общая ширина:</p>
         <input  type="text"
-                value={allwidth}
+                placeholder='0'
                 onChange={(e)=>{
-                  e.target.value = e.target.value<<0;    //delete Nulls in the beginning of number
-                  setAllwidth(+e.target.value)}}/>
-        <p className="mm">мм</p>
-      </div>
-      <div className={'parameters workwidth' + showParameters('lumber3')}>
-        <p>Рабочая ширина:</p>
-        <input  type="text"
-                value={workwidth}
-                onChange={(e)=>{
-                  e.target.value = e.target.value<<0;
-                  setWorkwidth(+e.target.value)}}/>
+                  setAllwidth(+e.target.value);
+                  setWorkwidth(+e.target.value) //set work width the same as allwidth
+                }}/>
         <p className="mm">мм</p>
       </div>
       <label htmlFor="lumber3"
@@ -106,7 +90,9 @@ export default function Choose({setWorkwidth, setAllwidth, allwidth,workwidth}) 
                id="lumber3"
                name="choose"
                value="lumber3"
-               onClick={(e)=>selection(e)}/>
+               onClick={(e)=>{
+                 selection(e);
+               }}/>
 
         <div className="wrapper">
           <img src={lumber1} className='lumber1' alt='lumber3'/>

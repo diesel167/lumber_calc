@@ -20,12 +20,13 @@ export default function Result({area,allwidth,workwidth}) {
       elements = 0;
     }
     else{
-      elements = (area*increasing*1000/(allwidth*length));
+      console.log('Ширина=' + workwidth);
+      console.log('Длина=' + length);
+      elements = Math.ceil(area*1000/(workwidth*length));
     }
   }
 
   let orderArea = (area*increasing).toFixed(1); //real area to order after increasing
-
 
 
 
@@ -35,9 +36,10 @@ export default function Result({area,allwidth,workwidth}) {
       <p>Введите длину:</p>
       <input  type="text"
               disabled={!area>0}
-              value={length}
+              placeholder='0'
               onChange={(e)=>{
-                setLength(+e.target.value<<0);    //delete Nulls in the beginning of number
+                console.log(+e.target.value);
+                setLength(+e.target.value);    //delete Nulls in the beginning of number
               }}/>
       <p>м</p>
     </label>

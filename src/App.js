@@ -14,20 +14,26 @@ function App() {
       <header className="App-header">
         <h1>Калькулятор отделочного пиломатериала</h1>
         <label className="switch">
-          <input type="checkbox" onChange={()=>{
-            if(theme === 'light'){
-              setTheme('dark');
-            }
-            else{
-              setTheme('light');
-            }
-          }}/>
+          <input type="checkbox"
+                 placeholder='0'
+                 onChange={()=>{
+                   if(theme === 'light'){
+                     setTheme('dark');
+                   }
+                   else{
+                     setTheme('light');
+                   }
+                 }}/>
           <span className="slider round"/>
+          <p className='theme'>{theme + ' theme'}</p>
         </label>
-        <p>{theme + ' theme'}</p>
+
         <div className="area-label">
           <p>Введите площадь вашей поверхности:</p>
-          <input className="area-input" type="text" onChange={e=>{
+          <input className="area-input"
+                 placeholder='0'
+                 type="text"
+                 onChange={e=>{
             if(+e.target.value){
               setArea(+e.target.value);
             }
