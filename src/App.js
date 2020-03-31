@@ -7,6 +7,8 @@ import Result from './Components/Result'
 function App() {
   let [theme, setTheme] = useState('light');
   let [area, setArea] = useState(0);
+  let [allwidth, setAllwidth] = useState(0);
+  let [workwidth, setWorkwidth] = useState(0);
   return (
     <div className={'App '+theme}>
       <header className="App-header">
@@ -21,8 +23,8 @@ function App() {
             }
           }}/>
           <span className="slider round"/>
-          <p>{theme + ' theme'}</p>
         </label>
+        <p>{theme + ' theme'}</p>
         <div className="area-label">
           <p>Введите площадь вашей поверхности:</p>
           <input className="area-input" type="text" onChange={e=>{
@@ -35,8 +37,13 @@ function App() {
           }}/>
         </div>
       </header>
-      <Choose/>
-      <Result/>
+      <Choose setWorkwidth={setWorkwidth}
+              setAllwidth={setAllwidth}
+              allwidth = {allwidth}
+              workwidth={workwidth}/>
+      <Result area = {area}
+              allwidth = {allwidth}
+              workwidth={workwidth}/>
     </div>
   );
 }
