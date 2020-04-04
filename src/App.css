@@ -7,6 +7,7 @@
     font-weight: 100;
     font-style: normal;
 }
+
 *{
     margin: 0;
     padding: 0;
@@ -15,135 +16,39 @@
 body{
     font-family: "Work Sans",sans-serif;
     font-size: 18px;
+    position: relative;
 }
 
 .App{
     min-height: 100vh;
     height: 100%;
+    width: 100%;
+    max-width: 100vw;
+    background: url("./img/derevo.jpg") ;
+    padding-top: 15px;
+    box-sizing: border-box;
+    clear: both;
+    overflow-x: hidden;
 }
 
 header{
-    text-align: center;
-    margin-bottom: 45px;
+    text-align: left;
+    margin-bottom: 60px;
+    position: relative;
 }
 
 h1{
     display: inline-block;
-    position: relative;
-
-    width: 100%;
+    width: calc(100% - 140px);
+    text-align: center;
+    margin-left: 70px;
     font-weight: 100;
-    margin-right: -70px;
 }
-.theme{
-    position: absolute;
-    bottom: -20px;
-    font-size: .8em;
-    left: -40px;
-    display: inline-block;
-    width: 110px;
-    margin: 0;
-}
-
-.parameters{
-    width: 100%;
-    position: absolute;
-    text-align: left;
-    z-index: 10;
-}
-
-.parameters.allwidth input {
-    position: absolute;
-    left: 162px;
-    width: 60px;
-}
-.parameters.workwidth input {
-    position: absolute;
-    left: 174px;
-    width: 60px;
-}
-
-
-.parameters .mm{
-    margin: 0 0 0 66px;
-    display: inline-block;
-}
-.parameters p {
-    margin: 0 0 0 25px;
-    display: inline-block;
-}
-
-
-
-.allwidth{
-    top: 70px;
-}
-
-.workwidth{
-    top: 210px;
-
-}
-
-.img{
-    position: relative;
-    text-align: center;
-    width: 300px;
-    height: 300px;
-    border: 1px solid grey;
-    transition: .1s ease-in;
-
-}
-
-.img:hover{
-    cursor: pointer;
-    box-shadow: 0px 1px 6px 5px grey;
-}
-
-.name{
-    position: absolute;
-    top: 20px;
-    width: 100%;
-    text-align: center;
-    z-index: 5;
-}
-
-
-.lumber1{
-    width: 100%;
-    height: 100%;
-}
-.lumber2{
-    margin-top: 29%;
-    width: 100%;
-}
-.dark{
-    background-color: rgba(0,4,19,0.9);
-    color: beige;
-}
-.dark .choose{
-    color: black !important;
-}
-
-button{
-    outline: none;
-    box-shadow: none;
-    border: none;
-}
-
-.toggle{
-    display: inline-block;
-}
-
-.choose{
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center;
-}
-
 
 .switch {
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
     display: inline-block;
     float: right;
     margin: 5px;
@@ -156,7 +61,6 @@ button{
     width: 0;
     height: 0;
 }
-
 
 .slider {
     position: absolute;
@@ -196,7 +100,6 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
     border-radius: 34px;
 }
@@ -205,15 +108,142 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+.theme{
+    position: absolute;
+    bottom: -20px;
+    font-size: .8em;
+    right: -28px;
+    display: inline-block;
+    width: 110px;
+    margin: 0;
+}
 
-.area-label{
+.parameters{
+    width: 100%;
+    position: absolute;
+    text-align: left;
+    z-index: 10;
+}
+
+.parameters.allwidth input {
+    position: absolute;
+    left: 162px;
+    width: 60px;
+}
+
+.parameters.workwidth input {
+    position: absolute;
+    left: 174px;
+    width: 60px;
+}
+
+.parameters .mm{
+    margin: 0 0 0 66px;
+    display: inline-block;
+}
+
+.parameters p {
+    margin: 0 0 0 25px;
+    display: inline-block;
+}
+
+.allwidth{
+    top: 70px;
+}
+
+.workwidth{
+    top: 210px;
+
+}
+
+.img{
     position: relative;
     text-align: center;
+    width: 300px;
+    height: 300px;
+    border: 1px solid grey;
+    transition: .1s ease-in;
+
+}
+
+.img:hover{
+    cursor: pointer;
+    box-shadow: 0px 1px 6px 5px grey;
+}
+
+.name{
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+}
+
+.lumber1{
+    width: 100%;
+    height: 100%;
+}
+
+.lumber2{
+    margin-top: 29%;
+    width: 100%;
+}
+
+.lumber3{
+    margin-top: 34%;
+    width: 90%;
+}
+
+.dark{
+    background: rgba(0,4,19,0.9);
+    color: beige;
+}
+
+.dark .choose{
+    color: black !important;
+}
+
+.dark .footer p,a{
+    color: beige !important;
+}
+
+button{
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.toggle{
+    display: inline-block;
+}
+
+.choose{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.choose-type{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.area-label{
+    clear: both;
+    position: relative;
+}
+
+.area-label p{
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
 }
 
 .area-input{
     position: absolute;
-    bottom: -30px;
+    bottom: -35px;
     left: calc(50% - 30px);
     width: 60px;
     animation: area 2s infinite;
@@ -238,14 +268,14 @@ input:focus{
 
 @keyframes area {
     0%{
-        box-shadow: 0 -15px 15px -12px rgba(220, 14, 0, 0.25) inset;
+        border-bottom: 2px solid red;
     }
     50%{
-        box-shadow: 0 -15px 15px -10px rgba(207, 178, 0, 0.35) inset;
+        border-bottom: 2px solid #8421ff;
     }
 
     100%{
-        box-shadow: 0 -15px 15px -12px rgba(220, 3, 0, 0.25) inset;
+        border-bottom: 2px solid red;
     }
 }
 
@@ -270,6 +300,7 @@ input:focus{
     width: 100%;
     height: 100%;
 }
+
 .radio input {
     position: absolute;
     opacity: 0;
@@ -287,6 +318,7 @@ input:focus{
 .show{
     visibility: visible;
 }
+
 .hide{
     visibility: hidden;
 }
@@ -299,8 +331,13 @@ input:disabled{
     background-color: rgba(255,3,0,0.29);
 }
 
+input:focus::-webkit-input-placeholder{
+    color: transparent;
+}
+
 .result{
     text-align: center;
+    margin: 35px 0 50px 0;
 }
 
 .result input{
@@ -310,7 +347,46 @@ input:disabled{
 
 .result p{
     display: inline-block;
-    margin-right: 10px;
+    margin: 15px 10px 15px 0;
+}
+
+.result label{
+    display: block;
+}
+
+.checkbox{
+    display: inline;
+    width: 20px !important;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+}
+
+.plus5{
+    line-height: 22px;
+    margin: 0 10px 15px 10px;
+}
+
+.plus5>p{
+    display: inline;
+    vertical-align: middle;
+    margin: 0 !important;
+}
+
+.footer{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+}
+
+.footer p, a{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.64);
+}
+
+.inactive{
+    filter: brightness(80%);
 }
 
 @media screen and (max-width:960px){
@@ -322,4 +398,20 @@ input:disabled{
         grid-gap: 10px;
         justify-items: center;
     }
+    h1{
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width:420px){
+
+    h1{
+        font-size: 30px;
+        margin-left: 16%;
+    }
+    .theme{
+        font-size: .6em;
+        right: -45px;
+    }
+
 }

@@ -4,13 +4,12 @@ import React, { useState } from "react";
 export default function Result({area,allwidth,workwidth}) {
 
   let [length, setLength] = useState(0);
+  let [plus5, setPlus5] = useState(1);
   let increasing;
   //how much elements as result need to order
   let elements;
-
   //if not set whether of widths
   if(!allwidth || !workwidth){
-    console.log(workwidth);
     elements = 0;
     increasing = 1;
   }
@@ -20,15 +19,11 @@ export default function Result({area,allwidth,workwidth}) {
       elements = 0;
     }
     else{
-      console.log('Ширина=' + workwidth);
-      console.log('Длина=' + length);
-      elements = Math.ceil(area*1000/(workwidth*length));
+      elements = Math.ceil(area*1000*plus5/(workwidth*length));
     }
   }
 
-  let orderArea = (area*increasing).toFixed(1); //real area to order after increasing
-
-
+  let orderArea = (area*increasing*plus5).toFixed(1); //real area to order after increasing
 
   return <div className='result'>
     <h3>{'Ваш заказ составляет: ' + orderArea + ' м2'}</h3>
@@ -43,7 +38,16 @@ export default function Result({area,allwidth,workwidth}) {
               }}/>
       <p>м</p>
     </label>
-    <h3>{'Количество необходимых элементов: ' + elements}</h3>
+    <label  className='plus5'>
+      <input className='checkbox'
+             type="checkbox"
+             disabled={!area>0}
+             onClick={(e)=>{
+        e.target.checked?setPlus5(1.05):setPlus5(1);
+      }}/>
+      <p>С запасом 5%</p>
+    </label>
+    <h3>{'Количество необходимых элементов: ' + elements + ' шт'}</h3>
   </div>
 
 }
