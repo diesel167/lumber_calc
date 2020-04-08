@@ -10,12 +10,21 @@ export default function ChooseItem({setWorkwidth,
                                      lumberName,
                                      name,
                                      refs,
+                                     allwidth,
+                                     workwidth,
                                      allrefs,
                                      setSelected,
                                      setFirstChoose}) {
 
+
   //handler for show/hide parameters for choosen lumber
-  let showParameters = (item) => selected===item?' show':' hide';
+  let showParameters = (item, a) =>{
+    if(a==='not3rd' && selected==='lumber3'){
+      return ' hide';
+    }
+    return selected===item?' show':' hide';
+  };
+
   let makeInactive = (item) => {
     return selected!==item&&!firstChoose?' inactive':'';
   };
@@ -26,12 +35,16 @@ export default function ChooseItem({setWorkwidth,
   //click away component listener
   useClickAway(ref, (e) => {
     //check if the click not on inputs or switch theme
-    if(e.path[0].tagName!=='INPUT' && e.path[0].className.split(' ')[0]!=='slider'){
+    if(e.path[0].tagName!=='INPUT' &&
+        e.path[0].className.split(' ')[0]!=='slider' &&
+        e.path[0].className!=='also-input'){
       //if click not on other lumbers
         setSelected('');
         setFirstChoose(true);
+        setWorkwidth(0);
+        setAllwidth(0);
         //reset input radio to unchecked
-        allrefs.map((i)=>{
+        allrefs.forEach((i)=>{
           i.current.checked = false;
         })
       }
@@ -43,14 +56,22 @@ export default function ChooseItem({setWorkwidth,
       <p>Общая ширина:</p>
       <input  type="text"
               placeholder='0'
-              onChange={(e)=>setAllwidth(+e.target.value)}/>
+              value={allwidth}
+              onChange={(e)=>{
+                //console.log(+e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));
+                setAllwidth(e.target.value.replace(/,/,'.'));
+                if(lumberName==='lumber3'){
+                  setWorkwidth(e.target.value.replace(/,/,'.'));
+                }
+              }}/>
       <p className="mm">мм</p>
     </div>
-    <div className={'parameters workwidth' + showParameters(lumberName)}>
+    <div className={'parameters workwidth' + showParameters(lumberName, 'not3rd')}>
       <p>Рабочая ширина:</p>
       <input  type="text"
               placeholder='0'
-              onChange={(e)=>setWorkwidth(+e.target.value)}/>
+              value={workwidth}
+              onChange={(e)=>setWorkwidth(e.target.value.replace(/,/,'.'))}/>
       <p className="mm">мм</p>
     </div>
     <label htmlFor={lumberName}

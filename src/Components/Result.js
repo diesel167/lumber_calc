@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 export default function Result({area,allwidth,workwidth}) {
 
-  let [length, setLength] = useState(0);
+  let [length, setLength] = useState('');
   let [plus5, setPlus5] = useState(1);
   let increasing;
   //how much elements as result need to order
@@ -32,9 +32,9 @@ export default function Result({area,allwidth,workwidth}) {
       <input  type="text"
               disabled={!area>0}
               placeholder='0'
+              value={length}
               onChange={(e)=>{
-                console.log(+e.target.value);
-                setLength(+e.target.value);    //delete Nulls in the beginning of number
+                setLength(e.target.value.replace(/,/,'.'));    //delete Nulls in the beginning of number
               }}/>
       <p>м</p>
     </label>
@@ -45,7 +45,7 @@ export default function Result({area,allwidth,workwidth}) {
              onClick={(e)=>{
         e.target.checked?setPlus5(1.05):setPlus5(1);
       }}/>
-      <p>С запасом 5%</p>
+      <p className='also-input'>С запасом 5%</p>
     </label>
     <h3>{'Количество необходимых элементов: ' + elements + ' шт'}</h3>
   </div>

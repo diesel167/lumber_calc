@@ -1,5 +1,6 @@
 {
   "name": "lumber",
+  "homepage": "https://diesel167.github.io/lumber_calc/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

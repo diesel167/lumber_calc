@@ -4,12 +4,11 @@ import lumber2 from "../img/lumber2.jpg";
 import lumber3 from "../img/lumber3.jpg";
 import ChooseItem from "./ChooseItem";
 
-export default function Choose({setWorkwidth, setAllwidth}) {
+export default function Choose({setWorkwidth, setAllwidth, allwidth, workwidth }) {
   let [selected, setSelected] = useState('');
   let [firstChoose, setFirstChoose] = useState(true);
-  let [checked, setChecked] = useState(false);
-  let elements = ['lumber1','lumber2','lumber3'];
-  let [refs, setRefs] = useState([
+
+  let [refs, ] = useState([
     useRef('lumber1'),
     useRef('lumber2'),
     useRef('lumber3')
@@ -20,10 +19,9 @@ export default function Choose({setWorkwidth, setAllwidth}) {
   let selection = (e) =>{
     setFirstChoose(false);
     if(e.target.value!==selected){
-      setChecked(true);
       setSelected(e.target.value);
-      setWorkwidth(0);  //reset widths
-      setAllwidth(0);
+      setWorkwidth('');  //reset widths
+      setAllwidth('');
     }
   };
 
@@ -31,6 +29,8 @@ export default function Choose({setWorkwidth, setAllwidth}) {
     <p className='choose-type'>Выберите тип материала:</p>
     <div className="choose">
       <ChooseItem selected={selected}
+                  allwidth={allwidth}
+                  workwidth={workwidth}
                   selection={selection}
                   firstChoose={firstChoose}
                   setWorkwidth={setWorkwidth}
@@ -41,11 +41,10 @@ export default function Choose({setWorkwidth, setAllwidth}) {
                   name={'Вагонка'}
                   setAllwidth={setAllwidth}
                   setSelected={setSelected}
-                  setChecked={setChecked}
-                  setFirstChoose={setFirstChoose}
-                  elements={elements}
-                  checked={checked}/>
+                  setFirstChoose={setFirstChoose}/>
       <ChooseItem selected={selected}
+                  allwidth={allwidth}
+                  workwidth={workwidth}
                   selection={selection}
                   firstChoose={firstChoose}
                   setWorkwidth={setWorkwidth}
@@ -55,12 +54,11 @@ export default function Choose({setWorkwidth, setAllwidth}) {
                   lumberName={'lumber2'}
                   name={'Половая доска'}
                   setSelected={setSelected}
-                  setChecked={setChecked}
                   setFirstChoose={setFirstChoose}
-                  elements={elements}
-                  setAllwidth={setAllwidth}
-                  checked={checked}/>
+                  setAllwidth={setAllwidth}/>
       <ChooseItem selected={selected}
+                  allwidth={allwidth}
+                  workwidth={workwidth}
                   selection={selection}
                   firstChoose={firstChoose}
                   setWorkwidth={setWorkwidth}
@@ -70,11 +68,8 @@ export default function Choose({setWorkwidth, setAllwidth}) {
                   lumberName={'lumber3'}
                   name={'Планкен'}
                   setSelected={setSelected}
-                  setChecked={setChecked}
                   setFirstChoose={setFirstChoose}
-                  elements={elements}
-                  setAllwidth={setAllwidth}
-                  checked={checked}/>
+                  setAllwidth={setAllwidth}/>
     </div>
   </React.Fragment>)
 }

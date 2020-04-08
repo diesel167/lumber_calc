@@ -6,9 +6,9 @@ import Footer from './Components/Footer';
 
 function App() {
   let [theme, setTheme] = useState('light');
-  let [area, setArea] = useState(0);
-  let [allwidth, setAllwidth] = useState(0);
-  let [workwidth, setWorkwidth] = useState(0);
+  let [area, setArea] = useState('');
+  let [allwidth, setAllwidth] = useState('');
+  let [workwidth, setWorkwidth] = useState('');
   return (
     <div className={'App '+theme}>
       <header className="App-header">
@@ -33,12 +33,13 @@ function App() {
           <input className="area-input"
                  placeholder='0'
                  type="text"
+                 value={area}
                  onChange={e=>{
                    if(+e.target.value){
-                     setArea(+e.target.value);
+                     setArea(e.target.value.replace(/,/,'.'));
                    }
                    else{
-                     setArea(0);
+                     setArea('');
                    }
           }}/>
         </div>
