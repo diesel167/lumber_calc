@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/lumber_calc/static/css/main.c3149139.chunk.css",
+    "main.js": "/lumber_calc/static/js/main.c29f573f.chunk.js",
+    "main.js.map": "/lumber_calc/static/js/main.c29f573f.chunk.js.map",
+    "runtime-main.js": "/lumber_calc/static/js/runtime-main.7ee961c5.js",
+    "runtime-main.js.map": "/lumber_calc/static/js/runtime-main.7ee961c5.js.map",
+    "static/js/2.41151a8f.chunk.js": "/lumber_calc/static/js/2.41151a8f.chunk.js",
+    "static/js/2.41151a8f.chunk.js.map": "/lumber_calc/static/js/2.41151a8f.chunk.js.map",
+    "index.html": "/lumber_calc/index.html",
+    "precache-manifest.5ccfd1ad1f60238b790d9e08fc4fe23c.js": "/lumber_calc/precache-manifest.5ccfd1ad1f60238b790d9e08fc4fe23c.js",
+    "service-worker.js": "/lumber_calc/service-worker.js",
+    "static/css/main.c3149139.chunk.css.map": "/lumber_calc/static/css/main.c3149139.chunk.css.map",
+    "static/js/2.41151a8f.chunk.js.LICENSE.txt": "/lumber_calc/static/js/2.41151a8f.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/lumber_calc/static/media/derevo.094f4358.jpg",
+    "static/media/lumber1.jpg": "/lumber_calc/static/media/lumber1.b45e9a51.jpg",
+    "static/media/lumber2.jpg": "/lumber_calc/static/media/lumber2.fc06f138.jpg",
+    "static/media/lumber3.jpg": "/lumber_calc/static/media/lumber3.68da841a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ee961c5.js",
+    "static/js/2.41151a8f.chunk.js",
+    "static/css/main.c3149139.chunk.css",
+    "static/js/main.c29f573f.chunk.js"
+  ]
+}
